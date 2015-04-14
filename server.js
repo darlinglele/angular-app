@@ -1,16 +1,9 @@
-var express = require('express')
-var app = express()
-app.use(express.static('./'));
+var express = require('express');
+//var server = express.createServer();
+// express.createServer()  is deprecated.
+var server = express(); // better instead
+server.configure(function(){
+  server.use('/', express.static(__dirname + '/'));
+});
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
-var server = app.listen(8090, function () {
-
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log('Example app listening at http://%s:%s', host, port)
-
-})
+server.listen(8090);

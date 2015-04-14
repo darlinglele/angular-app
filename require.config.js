@@ -6,7 +6,7 @@ require.config({
         angular: '/bower_components/angular/angular.min',
         angularRoute: '/bower_components/angular-route/angular-route.min',
         uiRouter: '/bower_components/angular-ui-router/release/angular-ui-router.min',
-        uiBootstrap: '/bower_components/ui-bootstrap/ui-bootstrap-tpls-0.12.0',
+        uiBootstrap: '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
         localStorage: '/bower_components/angular-local-storage/dist/angular-local-storage.min',
         angularResource: '/bower_components/angular-resource/angular-resource.min',
         jsTree: '/bower_components/jstree/dist/jstree.min.js',
