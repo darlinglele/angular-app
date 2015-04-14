@@ -1,0 +1,26 @@
+{
+  "name": "Hanhua BI",
+  "description": "linzhixiong@hanhua.com",
+  "version": "0.0.0",
+  "homepage": "https://github.com/darlinglele/BI",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "^1.x.x",
+    "jquery-ui": "^1.x.x",
+    "datatables": "~1.10.6",
+    "angular": "~1.3.x",
+    "angular-route": "~1.3.x",
+    "angular-resource": "~1.3.x",
+    "requirejs": "~2.1.x",
+    "bootstrap": "~3.3.x",
+    "bootstrap-multiselect": "^0.9.x",
+    "highcharts": "~4.0.x",
+    "highmaps": "^1.x.x",
+    "blueimp-file-upload": "^9.x.x",
+    "angular-local-storage": "~0.1.5",
+    "angular-ui-router": "~0.2.13",
+    "jstree": "~3.1.0",
+    "font-awesome": "~4.3.0"
+  }
+}

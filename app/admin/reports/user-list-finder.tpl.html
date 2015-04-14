@@ -1,0 +1,32 @@
+﻿<div class="modal-header">
+    <button type="button" ng-click="cancel()"  class="close"><span  aria-hidden="true">&times;</span><span class="sr-only" >Close</span></button>
+    <h4 class="modal-title" id="H1">选择用户</h4>
+</div>
+<div class="modal-body">
+    <div >
+        <table class="display" awesometable="true">
+            <thead>
+                <th></th>
+                <td>#</td>
+                <td>账号</td>
+                <td>显示名称</td>
+                <td>邮箱</td>
+                <td>角色</td>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <th><input ng-model="user.checked" type="checkbox"/></th>
+                    <th>{{user.Id}}</th>
+                    <td>{{user.Name}}</td>
+                    <td>{{user.DisplayName}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>{{user.RoleName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" ng-click="cancel()" class="btn btn-default" data-dismiss="modal"><asp:Localize ID="Localize18" meta:resourcekey="Cancel" runat="server">取消</asp:Localize></button>
+    <button type="button" ng-click="ok();" class="btn btn-primary"><asp:Localize ID="Localize19" meta:resourcekey="Confirm" runat="server">确定</asp:Localize></button>
+</div>

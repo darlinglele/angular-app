@@ -1,0 +1,41 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        用户信息：            
+    </div>
+
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>账号：</td>
+                <td><input type="text" disabled="disabled" class="form-control" ng-model="user.Account" aria-describedby="basic-addon1"></td>
+                <td style="width: 100px;"> </td>
+                <td>显示名称：</td>
+                <td><input type="text" class="form-control" ng-model="user.DisplayName" aria-describedby="basic-addon1"></td>
+                <td style="width: 100px;"> </td>
+                <td>邮箱：</td>
+                <td><input type="text"  class="form-control" ng-model="user.Email" aria-describedby="basic-addon1"></td>
+                <td style="width: 100px;"> </td>
+                      
+                <td>角色：</td>
+                <td><select  ng-model="user.RoleId">
+                        <option value="4">普通用户</option>
+                        <option value="1">管理员</option>
+                    </select>
+
+                </td>
+                <td style="width: 100px;"></td>
+                <td >
+                    <button type="button" class="btn btn-sm btn-default" ng-click="updateUser(user)">保 存</button>
+                </td>
+            </tr> 
+        </table>
+                                                                                                            
+    </div>
+</div>                        
+                    
+<div class="panel panel-default">
+    <div class="panel-heading">
+        用户报表：
+    </div>
+    <jstree type="ReportBrowser"></jstree>      
+</div>

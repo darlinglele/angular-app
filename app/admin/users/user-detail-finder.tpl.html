@@ -1,0 +1,38 @@
+﻿<div class="modal-header">
+    <button type="button" ng-click="cancel()" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title" id="H1">创建用户</h4>
+</div>
+<div class="modal-body">
+    <div >
+        <div class="input-group">
+            <input ng-model="name" type="text" value="linzhixiong" class="form-control" placeholder="输入用户账号">
+            <span class="input-group-btn">
+                <button ng-click="find()" class="btn btn-default" type="button">查找</button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
+    <ul class="list-group" ng-show="found">
+        <li class="list-group-item">                              
+            账号: <input type="text" name="account"  ng-model="user.Account" />
+        </li>
+        <li class="list-group-item">                              
+            姓名:   <input type="text" name="displayName" ng-model="user.DisplayName" />
+        </li>
+        <li class="list-group-item">                              
+            邮箱:   <input type="text" name="email"  ng-model="user.Email" />
+        </li>
+        <li class="list-group-item">                              
+            职位: <input type="text" name="title"  ng-model="user.Title" />
+        </li>
+        <li class="list-group-item">                              
+            角色:   <select ng-model="user.RoleId" >
+                      <option value="4" selected="selected">普通用户</option>
+                      <option value="1">管理员</option>
+                  </select>
+        </li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button type="button" ng-click="cancel()" class="btn btn-default" data-dismiss="modal"><asp:Localize ID="Localize18" meta:resourcekey="Cancel" runat="server">取消</asp:Localize></button>
+    <button type="button" ng-show="found" ng-click="ok()" class="btn btn-primary"><asp:Localize ID="Localize19" meta:resourcekey="Confirm" runat="server">创建</asp:Localize></button>
+</div>

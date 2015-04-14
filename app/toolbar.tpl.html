@@ -1,0 +1,35 @@
+﻿<nav id="toolbar" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" >
+            <ul class="nav navbar-nav">
+                <li >
+                    <a  id="toggleLeftSidebar" ng-click="toggleLeftSidebar()" title='Close sidebar' data-toggle="tooltip" data-placement="bottom"><i class="fa fa-align-justify fa-lg"></i></a>
+                </li>
+                <li>
+                    <ol class="breadcrumb" style="margin: 0px; padding: 10px;">
+                        <li class="active"><i class="fa fa-users"></i> <a ng-click="toggleLeftSidebar()"> {{breadcrumbObject.name}}</a></li>                  
+                        <li ng-repeat="item in breadcrumbObject.items"> {{item.Name}} </li>
+                    </ol>
+                </li>         
+                <li route-loading-indicator=""></li>         
+                                                          
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                                       
+                <li>
+                    <a type="button" ng-click="refresh()" id="refreshReportBtn" href="#"  tabindex="0"  title='Refresh report' data-toggle="tooltip" data-placement="bottom" ><i class="glyphicon glyphicon-refresh"></i> <asp:Localize ID="Localize1" meta:resourcekey="Refresh" runat="server">刷新</asp:Localize></a>
+                </li>
+                                        
+                <li >
+                    <a href="#" id="toggleHeader" ng-click="toggleHeader()" data-placement="bottom" data-toggle="tooltip" title="Full screen" >
+                        <i class="fa  fa-angle-double fa-lg"></i></a>                                       
+                </li>
+                <li >
+                    <a  id="openFilterBtn" href="#" data-placement="bottom" data-toggle="tooltip"  >
+                        <i class="fa fa-cog fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

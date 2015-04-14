@@ -1,0 +1,102 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        基本信息：                    
+    </div>
+
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>名称：</td>
+                <td><input type="text" class="form-control" ng-model="report.Name" aria-describedby="basic-addon1"></td>
+                <td style="width: 100px;"> </td>
+                <td>路径：</td>
+                <td><input type="text" class="form-control" ng-model="report.Config" aria-describedby="basic-addon1"></td>
+                <td style="width: 100px;"> </td>
+                <td>类型：</td>
+                <td>
+                    <select  ng-model="report.TypeID">
+                              <option value="1">纯报表</option>
+                              <option value="2">需要编号</option>
+                          </select>
+
+                </td>
+                <td style="width: 100px;"></td>
+                <td >
+                    <button type="button" class="btn btn-sm btn-default" ng-click="updateReport()">保 存</button>
+                </td>
+            </tr> 
+        </table>
+    </div>
+</div>                        
+<div class="panel panel-default" ng-hide="true">
+    <div class="panel-heading">
+        <span>参数设置：</span>
+    </div>
+    <div style="padding: 5px;">
+        <button ng-click="openPicker()" id="Button1" class="btn btn-info btn-sm" type="button"><i class="glyphicon glyphicon-plus"></i> 添加参数</button>
+    </div>
+             
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>参数名称</th>
+                <th>参数类型</th>
+                <th>默认值</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>编号</td>
+                <td>文本</td>
+                <td>无</td>
+                <td>删除</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>城市</td>
+                <td>多选列表</td>
+                <td>无</td>
+                <td>删除</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                    
+<div class="panel panel-default">
+    <div class="panel-heading">
+        权限设置：
+    </div>
+ 
+    <div style="padding: 5px;">
+        <button ng-click="addUser()" id="addUserBtn" class="btn btn-info btn-sm" type="button"><i class="glyphicon glyphicon-plus"></i> 添加用户</button>
+    </div>
+             
+    <div>
+        <table class="display" cellspacing="0" width="100%"  awesometable="true">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>账号</th>
+                    <th>显示名称</th>
+                    <th>邮件地址</th>
+                    <th>系统角色</th>
+                    <th>操作</th>
+                </tr>
+            </thead> 
+           
+            <tbody>
+                <tr ng-repeat="user in reportUsers" >
+                    <th scope="row">{{user.Id}}</th>
+                    <td>{{user.Name}}</td>
+                    <td>{{user.DisplayName}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>{{user.RoleName}}</td>
+                    <td><button  ng-click="disable(user.ReportUserId)" type="button" class="btn btn-sm btn-danger" ><i class="glyphicon glyphicon-remove"></i> 删除</button></td>
+                </tr>                                                               
+            </tbody>
+        </table>
+    </div>
+</div>

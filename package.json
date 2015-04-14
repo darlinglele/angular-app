@@ -1,0 +1,16 @@
+{
+  "name": "angular-app-web-server",
+  "description": "Epick",
+  "version": "0.0.1",
+  "private": true,  
+  "devDependencies": {
+  "express": "~3.0",
+  "bower":"~1.3.x"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "node server.js"
+  }
+}
+

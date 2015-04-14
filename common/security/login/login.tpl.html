@@ -1,0 +1,45 @@
+﻿<form name="form" novalidate class="login-form">
+    <div class="modal-header">
+        <h4>{{welcome}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-warning" ng-show="authReason">
+            {{authReason}}
+        </div>
+        <div class="alert alert-error" ng-show="authError">
+            {{authError}}
+        </div>
+        <table>
+            <tr>
+                <td>  <label>账号:&nbsp;</label></td>
+                <td>
+                    <div class="input-group">             
+                        <input type="text" ng-model="user.email" required autofocus class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-addon" id="basic-addon2">@hanhua.com</span>
+                    </div>
+                </td>
+               
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>密码:&nbsp;</label>  
+                </td>
+                <td>
+                    <input type="password" class="form-control" ng-model="user.password" required >
+                </td>
+            </tr>
+        </table>
+       
+     
+        <!--        <input name="login" type="text" ng-model="user.email" required autofocus>-->
+       
+<!--        <input name="pass" type="password" ng-model="user.password" required>-->
+    </div>  
+    <div class="modal-footer">
+        <button class="btn btn-primary login" ng-click="login()" ng-disabled='form.$invalid'>登录</button>
+        <button class="btn btn-warning cancel" ng-click="cancelLogin()">取消</button>
+    </div>
+</form>
