@@ -1,0 +1,289 @@
+* {
+    font-family: "Microsoft YaHei";
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+  font-size: 12px;
+  color: #333333;
+}
+.clearfix {
+	clear: both;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-vertical-padding {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.no-radius {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.white {
+	color: #fff;
+}
+
+.v-align-middle {
+	vertical-align: middle;
+}
+
+.light-grey {
+	color: #ddd;
+}
+
+.grey {
+	color: #555;
+}
+
+.size-12 {
+	font-size: 12px;
+}
+
+.size-13 {
+	font-size: 13px;
+}
+
+.size-14 {
+	font-size: 14px;
+}
+
+.size-16 {
+	font-size: 16px;
+}
+
+.size-18 {
+	font-size: 18px;
+}
+
+.size-20 {
+	font-size: 20px;
+}
+
+.hspace-4 {
+	margin: 0 2px;
+}
+
+.hspace-10 {
+	margin: 0 5px;
+}
+
+.vspace-4 {
+	margin: 2px 0;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.hide {
+	display: none;
+}
+
+.highlight {
+	background-color: #F3F781;
+}
+
+.padding-top-10 {
+	padding-top: 10px;
+}
+.padding-top-7 {
+	padding-top: 7px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.relative {
+	position: relative;
+}
+
+.indented {
+	text-indent: 2em;
+}
+
+.floatL {
+	float: left
+}
+
+.floatR {
+	float: left
+}
+
+.bg-white {
+	background-color: white
+}
+
+.font-common-col {
+	color: #555555
+}
+
+.blue-amount {
+	color: #95cf78;
+	font-size: 24px;
+}
+
+.form-set {
+	margin-bottom: 50px;
+}
+
+.show-title {
+	color: #888;
+	font-weight: normal;
+}
+
+.show-content {
+	
+}
+
+.success {
+	color: #95cf78;
+}
+
+.grey {
+	color: #888;
+}
+
+.green-border {
+	border: 1px solid #5cb85c;
+}
+
+.row-percent {
+	width: 100%;
+	margin: 0 -5px;
+	float: left;
+}
+
+/*-----smaill hands---- */
+.cursor-p {
+	cursor: pointer;
+}
+
+.row-percent:before,
+.row-percent:after {
+	display: table;
+  	content: " ";
+}
+
+.col-percent10, .col-percent15, .col-percent20 {
+	padding: 0 5px;
+	float: left;
+}
+
+.col-percent10 {
+	width: 10%;
+}
+
+.col-percent15 {
+	width: 15%;
+}
+
+.col-percent20 {
+	width: 20%;
+}
+
+.col-offset-percent10 {
+	margin-left: 10%;
+}
+
+.col-offset-percent20 {
+	margin-left: 20%;
+}
+
+.xs-container {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.xs-row {
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+.xs-col {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.letter-spacing-05 {
+	letter-spacing: 0.5em;
+}
+
+.table {
+	table-layout: fixed; /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+}
+
+.table td {
+	width: 100%;
+	word-break: keep-all; /* 不换行 */
+	white-space: nowrap; /* 不换行 */
+	overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow: ellipsis;
+	/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一 起使用。*/
+}
+.btn-clipboard {
+	float:right;
+	z-index: 10;
+	display: block;
+	padding: 5px 8px;
+	font-size: 12px;
+	color: #767676;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #e1e1e8;
+	border-radius: 0 4px 0 4px;
+}
+.btn-clipboard-hover {
+	color: #fff;
+	background-color: #563d7c;
+	border-color: #563d7c
+}
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px; 
+    height: 300px
+}
+.area-control{
+	padding-left:2px;
+	padding-right:2px;
+}
+.required{
+	color: red
+}
+.section-body {
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	display: block;
+	overflow: visible;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+.section-title {
+	font-weight: bold;
+	line-height: 20px;
+	padding-left: 10px;
+	color: #333;
+}
+.mg-top-20{
+	margin-top: 20px
+}
+.dataTable th , .dataTable td {
+	font-size: 12px
+}

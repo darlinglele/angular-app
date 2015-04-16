@@ -1,6 +1,6 @@
-﻿define(['angular', 'angularRoute', 'uiRouter', 'common/index', './master', './basic/home', './admin/index'], function(angular) {
-    return angular.module('app', ['ngRoute', 'ui.router', 'services', 'security', 'directives', 'app.master', 'app.home', 'app.admin']).config([
-        '$locationProvider', '$routeProvider', 'securityAuthorizationProvider', function($locationProvider, $routeProvider, securityAuthorizationProvider) {
+﻿define(['angular', 'uiRouter', 'common/index', './index','./customer/index'], function(angular) {
+    return angular.module('app', ['ui.router', 'services', 'security', 'directives', 'app.index','app.customer']).config([
+        '$locationProvider', function($locationProvider) {
             $locationProvider.html5Mode(true);
         }
     ]).config(function($httpProvider) {

@@ -1,0 +1,122 @@
+<ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+    <li class="xn-icon-button">
+        <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+    </li>
+    <li class="xn-search">
+        <form role="form">
+            <input type="text" name="search" placeholder="Search..."/>
+        </form>
+    </li>
+    <li class="xn-icon-button pull-right">
+        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+    </li>
+    <li class="xn-icon-button pull-right"></li>
+    <li class="xn-icon-button pull-right">
+        <a href="#"><span class="fa fa-tasks"></span></a>
+        <div class="informer informer-warning">3</div>
+    </li>
+</ul>
+<ul class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li>客户管理</li>
+    <li class="active">客户查询</li>
+</ul>
+
+<div class="page-content-wrap">
+    <div class="container mg-top-20">
+        <form id="pageForm" class="form-horizontal">
+            <div class="row section-title">
+                <div class="col-xs-6">
+                    <h4 class="section-title">查询条件</h4>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <button type="button" class="btn btn-success" ng-click="query()" >查询</button>
+                    <button type="button" class="btn btn-danger" ng-click="reset()">重置</button>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="customerNo">客户编号</label>
+                    <div class="col-xs-3">
+                        <input ng-model="condition.customerNo" type="text" class="form-control">
+                    </div>
+                    <label class="control-label col-xs-2 col-xs-offset-1" for="name">客户名称</label>
+                    <div class="col-xs-3">
+                        <input ng-model="condition.name" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="customerType">客户类型</label>
+                    <div class="controls col-xs-3">
+                        <select class="form-control" ng-model = "condition.customerType"  ng-options="item.value as item.label  for item in customerType">
+                        </select>
+                    </div>
+                    <label class="control-label col-xs-offset-1 col-xs-2" for="identityType">证件类型</label>
+                    <div class="col-xs-3">
+                        <select class="form-control" ng-model = "condition.identityType"  ng-options="value.id as value.nameChs  for value in identityType">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="identityNumber">证件号码</label>
+                    <div class="col-xs-3">
+                        <input ng-model="condition.identityNumber" type="text" class="form-control">
+                    </div>
+                    <label class="col-xs-2 col-xs-offset-1 control-label">行业类别</label>
+                    <div  class="col-xs-3">
+                        <ui-select ng-model="condition.industry.id"
+                                   theme="select2"
+                                   ng-disabled="disabled"
+                                   reset-search-input="false"
+                                   style="width:100%;">
+                            <ui-select-match placeholder="请输入行业名称">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices repeat="industry.id as industry in industries"
+                                               refresh="refreshIndustry($select.search)"
+                                               refresh-delay="3">
+                                <div ng-bind-html="industry.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="businessCode">营业执照</label>
+                    <div class="col-xs-3">
+                        <input ng-model="condition.businessCode" type="text" class="form-control">
+                    </div>
+                    <label class="col-xs-2 col-xs-offset-1 control-label" for="customerSource">客户来源</label>
+                    <div class="col-xs-3" >
+                        <select class="form-control" ng-model = "condition.customerSource"  ng-options="value.id as value.nameChs  for value in customerSource">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="creditManager">信贷经理</label>
+                    <div class="col-xs-3">
+                        <input ng-model="condition.creditManager" type="text" class="form-control">
+                    </div>
+                    <label class="col-xs-2 col-xs-offset-1 control-label" for="status">状态</label>
+                    <div class="col-xs-3">
+                        <select class="form-control" ng-model = "condition.status"  ng-options="item.value as item.label  for item in customerStatus">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="isRelatedCustomer">关联客户</label>
+                    <div class="col-xs-3">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="condition.isRelatedCustomer" value="true">是
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="condition.isRelatedCustomer" value="false">否
+                        </label>
+                    </div>
+                    <label class="col-xs-2 col-xs-offset-1 control-label" for="departmentName">客户所属机构</label>
+                    <div class="col-xs-3">
+                        <input ng-model="condition.departmentName" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table class="stripe row-border hover"  datatable="" dt-options="dtOptions" dt-columns="dtColumns"></table>
+    </div>
+</div>

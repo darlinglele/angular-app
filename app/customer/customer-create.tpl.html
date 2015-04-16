@@ -1,0 +1,340 @@
+<ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+	<li class="xn-icon-button">
+		<a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+	</li>
+	<li class="xn-search">
+		<form role="form">
+			<input type="text" name="search" placeholder="Search..."/>
+		</form>
+	</li>
+	<li class="xn-icon-button pull-right">
+		<a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+	</li>
+	<li class="xn-icon-button pull-right"></li>
+	<li class="xn-icon-button pull-right">
+		<a href="#"><span class="fa fa-tasks"></span></a>
+		<div class="informer informer-warning">3</div>
+	</li>
+</ul>
+<ul class="breadcrumb">
+	<li><a href="#">Home</a></li>
+	<li>客户管理</li>
+	<li class="active">新建客户</li>
+</ul>
+
+<div class="page-content-wrap">
+
+	<div class="container mg-top-20" >
+		<div class="row section-title">
+			<div class="col-xs-6">
+				<h4 class="section-title">个人客户基本信息</h4>
+			</div>
+			<div class="col-xs-6 text-right">
+				<button type="button" class="btn btn-success" ng-disabled="btn_save_disabled" data-loading-text="处理中..." ng-click="save()" ng-bind="btn_save_lable()"></button>
+				<button type="button" class="btn btn-success" ng-click="submit()">提交</button>
+				<button type="button" class="btn btn-danger" ng-click="cancle()">取消</button>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+		</div>
+		<form class="form form-horizontal section-body">
+			<div class="form-group">
+				<div class="col-xs-3 col-xs-offset-2">
+					<label class="checkbox-inline">
+						<input type="checkbox" id="inlineCheckbox1" value="option1">是否是内部员工
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>证件类型</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.identityType.id"  ng-options="value.id as value.nameChs  for value in identityType">
+					</select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>证件号码</label>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" ng-model="customer.identityNumber" placeholder="请输入">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>姓名</label>
+				<div class="col-xs-3" >
+					<input type="text" class="form-control" ng-model="customer.name" placeholder="请输入">
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">曾用名</label>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" ng-model="customer.originalName" placeholder="请输入">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>手机号码</label>
+				<div class="col-xs-3" >
+					<input type="text" class="form-control" ng-model="customer.mobile" placeholder="请输入">
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">联系电话</label>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" ng-model="customer.tel" placeholder="请输入">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>性别</label>
+				<div class="col-xs-3">
+					<label class="radio-inline">
+						<input type="radio" ng-model="customer.gender" value="male">男
+					</label>
+					<label class="radio-inline">
+						<input type="radio" ng-model="customer.gender"  value="female">女
+					</label>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>出生日期</label>
+				<div class='col-xs-3'>
+					<!-- <input class="form-control" readonly ui-date="dateOptions" ui-date-format="yy-MM-dd HH:mm:ss" ng-model="customer.birthday" ng-required="true"> -->
+					<p class="input-group">
+						<input type="text" readonly class="form-control"
+							   datepicker-popup="yyyy-MM-dd" ng-model="customer.birthday" is-open="opened2"  min-date="minDate"  datepicker-options="dateOptions" date-disabled="disabledTime(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>国籍</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.nationality.id"  ng-options="value.id as value.nameChs  for value in nationality">
+					</select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>婚姻状况</label>
+				<div class="col-xs-3">
+					<select class="form-control" ng-model = "customer.marriageInfo.id"  ng-options="value.id as value.nameChs  for value in marriageInfo">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>子女情况</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.childrenInfo"  ng-options="item.value as item.label  for item in childrenInfo">
+					</select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">家庭人数</label>
+				<div class="col-xs-3">
+					<select class="form-control" ng-model = "customer.fendByCount"  ng-options="item.value as item.label  for item in fendByCount">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label">最高学历</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.education.id"  ng-options="value.id as value.nameChs  for value in education">
+					</select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">上传印鉴</label>
+				<div class="col-xs-3">
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>个人年收入</label>
+				<div class="col-xs-3">
+					<div class="input-group">
+						<input type="text" ng-model="customer.annualIncome" placeholder="请输入" class="form-control" placeholder="">
+						<span class="input-group-addon">万</span>
+					</div>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">家庭年收入</label>
+				<div class="col-xs-3">
+					<div class="input-group">
+						<input type="text" ng-model="customer.famalyIncome" placeholder="请输入" class="form-control" placeholder="">
+						<span class="input-group-addon">万</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group"  >
+				<label class="col-xs-2 control-label"><span class="required">*</span>证件地址</label>
+				<div class="col-xs-6" id="area-control">
+					<div class="col-xs-4 area-control">
+						<select class="form-control" ng-model="selectedProvince"  ng-options="province.id as province.nameChs  for province in provinceArr"></select>
+					</div>
+					<div class="col-xs-4 area-control">
+						<select class="form-control" ng-model="selectedCity" ng-options="city.id as city.nameChs for city in cityArr"></select>
+					</div>
+					<div class="col-xs-4 area-control">
+						<select class="form-control" ng-model="selectedCounty" ng-options="county.id as county.nameChs for county in countyArr"></select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>居住状况</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.resideType.id"  ng-options="value.id as value.nameChs  for value in resideType"></select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">邮编</label>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" ng-model="customer.postCode" placeholder="请输入">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>工作情况</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.jobType.id"  ng-options="value.id as value.nameChs  for value in jobType"></select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label">电子邮箱</label>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" ng-model="customer.email" placeholder="请输入">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>职业</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.professionalType.id"  ng-options="value.id as value.nameChs  for value in professionalType">
+					</select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>职务</label>
+				<div class="col-xs-3">
+					<select class="form-control" ng-model = "customer.dutyType.id"  ng-options="value.id as value.nameChs  for value in dutyType">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>工作单位</label>
+				<div class="col-xs-7">
+					<input type="text" ng-model="customer.companyName" class="form-control" placeholder="请输入">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>行业类别</label>
+				<div  class="col-xs-3">
+					<ui-select ng-model="customer.industry.id"
+							   theme="select2"
+							   ng-disabled="disabled"
+							   reset-search-input="false"
+							   style="width:100%;">
+						<ui-select-match placeholder="请输入行业名称">{{$select.selected.name||originIndustryName}}</ui-select-match>
+						<ui-select-choices repeat="industry.id as industry in industries"
+										   refresh="refreshIndustry($select.search)"
+										   refresh-delay="3">
+							<div ng-bind-html="industry.name | highlight: $select.search"></div>
+						</ui-select-choices>
+					</ui-select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label"><span class="required">*</span>企业性质</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.corporationKind.id"  ng-options="value.id as value.nameChs  for value in corporationKind">
+					</select>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>企业规模</label>
+				<div class="col-xs-3">
+					<select class="form-control" ng-model = "customer.employeeCount.id"  ng-options="value.id as value.nameChs  for value in employeeCount">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label">单位电话</label>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" ng-model="customer.companyTel" placeholder="请输入">
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>客户来源</label>
+				<div class="col-xs-3" >
+					<select class="form-control" ng-model = "customer.customerSource.id"  ng-options="value.id as value.nameChs  for value in customerSource">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label">备注</label>
+				<div class="col-xs-9">
+					<textarea ng-model="customer.remark" class="form-control" rows="3" cols=""></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-2 control-label">信贷经理</label>
+				<div class="col-xs-3">
+					<p class="form-control-static">{{employeeName}}</p>
+				</div>
+				<label class="col-xs-2 col-xs-offset-1 control-label"><span class="required">*</span>客户所在部门</label>
+				<div class="col-xs-3">
+					<select class="form-control" ng-model = "customer.department.id"  ng-options="value.id as value.name  for value in departments">
+					</select>
+				</div>
+			</div>
+			<hr ng-show="showShareInfo()"/>
+			<table class="row-border hover" ng-show="showShareInfo()" datatable="ng" ng-model="customer.customerShareInfos" dt-options="dtOptions" dt-column-defs="dtColumnDefs" >
+				<thead>
+				<tr>
+					<th colspan="3" class="text-left">共享使用用户</th>
+					<th class="text-center">
+						<button type="button" ng-click="openWin()" class="btn btn-success btn-sm">添加</button>
+					</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th class="text-center">信贷经理</th>
+					<th class="text-center">部门</th>
+					<th class="text-center" style="width: 100px;">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="item in customer.customerShareInfos">
+					<td>{{ item.id }}</td>
+					<td class="text-center">{{ item.shareManager.employeeName }}</td>
+					<td class="text-center">{{ item.department.name }}</td>
+					<td class="text-center">
+						<button type="button" ng-click="editRow($index)" class="btn btn-warning btn-xs">编辑</button>
+						<button type="button" ng-click="delRow($index)" class="btn btn-danger btn-xs">删除</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<!-- Modal -->
+	<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+		<div class="modal-dialog">
+			<div dragable class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">模态窗口</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form form-horizontal" id="resForm">
+						<div class="row">
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="inputName">信贷经理</label>
+								<div class="col-xs-3">
+									<ui-select id="emp_select" ng-model="newRowData.shareManager.id"
+											   theme="select2"
+											   ng-disabled="disabled"
+											   reset-search-input="false"
+											   style="width:100%;">
+										<ui-select-match id="share_empName">{{$select.selected.employeeName || _employeeName}}</ui-select-match>
+										<ui-select-choices repeat="employee.id as employee in employees"
+														   refresh="refreshEmployee($select.search)"
+														   refresh-delay="3">
+											<div ng-bind-html="employee.employeeName | highlight: $select.search"></div>
+											<small>
+												部门:
+												职位: {{employee.employeeDepartments[0].positionType}}
+											</small>
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<label class="control-label col-xs-2">部门</label>
+								<div class="col-xs-3">
+									<select ng-disabled="disEmpDep()" id="dep_emp" class="form-control" ng-model = "newRowData.department.id"  ng-options="value.id as value.name  for value in em_departments">
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" ng-show="btn_confirm_flag" ng-click="addRow()" id="btnSave">确定</button>
+					<button class="btn btn-primary" ng-show="btn_save_flag"  ng-click="editSave()" id="btnEdit">保存</button>
+					<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">取消 </button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

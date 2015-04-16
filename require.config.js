@@ -3,23 +3,31 @@
 window.name = "NG_DEFER_BOOTSTRAP!";
 require.config({
     paths: {
-        angular: '/bower_components/angular/angular.min',
-        angularRoute: '/bower_components/angular-route/angular-route.min',
-        uiRouter: '/bower_components/angular-ui-router/release/angular-ui-router.min',
-        uiBootstrap: '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
-        localStorage: '/bower_components/angular-local-storage/dist/angular-local-storage.min',
-        angularResource: '/bower_components/angular-resource/angular-resource.min',
-        jsTree: '/bower_components/jstree/dist/jstree.min.js',
-        dataTables: '/bower_components/DataTables/media/js/jquery.dataTables.js'
+        angular: 'bower_components/angular/angular.min',
+        angularRoute: 'bower_components/angular-route/angular-route.min',
+        uiRouter: 'bower_components/angular-ui-router/release/angular-ui-router.min',
+        uiDate: 'bower_components/angular-ui-date/src/date',
+        uiSelect: 'bower_components/angular-ui-select/dist/select.min',
+        angularDatatables: 'bower_components/angular-datatables/dist/angular-datatables.min',
+        angularSanitize:'bower_components/angular-sanitize/angular-sanitize.min',
+        uiBootstrap: 'bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
+        localStorage: 'bower_components/angular-local-storage/dist/angular-local-storage.min',
+        angularResource: 'bower_components/angular-resource/angular-resource.min',
+        jsTree: 'bower_components/jstree/dist/jstree.min.js',
+        dataTables: 'bower_components/DataTables/media/js/jquery.dataTables.js'
     },
     shim: {
         'angular': {
             exports: 'angular'
         },
         angularRoute: ['angular'],
+        angularSanitize: ['angular'],
         angularResource: ['angular'],
+        angularDatatables: ['angular'],
         uiBootstrap: ['angular'],
         uiRouter:['angular'],
+        uiDate:['angular'],
+        uiSelect:['angular'],
         localStorage: ['angular']
     },
     priority: [
@@ -27,14 +35,12 @@ require.config({
     ]
 });
 
-
 require(['angular', 'app/app'], function(angular, app) {
-
-    $(document).ready(function() {
-        $('body').show();
+    console.log('1');
+    angular.element().ready(function() {
+        console.log('2');
         angular.bootstrap(document, [app.name]);
     });
-
 });
 
 

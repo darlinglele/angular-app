@@ -25,7 +25,7 @@
                     },
                     'center': {
                         template: 'nothing'
-                    },
+                    }
                 }
             });
 

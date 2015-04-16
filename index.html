@@ -1,49 +1,57 @@
-﻿<!DOCTYPE html>
-<html lang="en" ng-app="app">
+<!DOCTYPE html>
+<html lang="en"  ng-app="app">
 <head>
-    <!-- Base for requireJS-->
-    <base href="/">   
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width" />
- 
-    <link rel="stylesheet" href="/bower_components/jstree/dist/themes/default/style.min.css" />  
-    <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">   
-    <link href="/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet">    
-    <link href="/less/main.css" rel="stylesheet">
-    
-    <!--Global JS library-->
-    <script src="/config/config.js"></script>        
-    <script src = '/config/config.zh-CN.js' ></script>
-                 
-    <script src="/config/browser.js"></script>
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>        
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/bower_components/jstree/dist/jstree.min.js"></script>
-    <script src="/bower_components/jquery.layout/dist/jquery.layout-latest.js"></script>    
-    <script src="/bower_components/DataTables/media/js/jquery.dataTables.js"></script>
-        
-    <!--app start here-->
-    <script src="/bower_components/requirejs/require.js" data-main="require.config.js"></script>
-</head>
+    <base href="/">
+    <title>New epik face</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<body  ng-controller="IndexPageCtrl" style="display: none;">
-    <div ng-include="'app/header.tpl.html'"></div>
-    <div ui-view="toolbar" class="view-animate"></div>
-    <div id="workspace" layoutmanager="true">
-        <div class="ui-layout-west" >
-            <div ui-view="west" class="view-animate full-screen" ></div>               
-        </div>     
-        
-        <div class="ui-layout-center">           
-            <div id="center">
-                <div ui-view="center" class="view-animate full-screen" ></div>
-            </div>   
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="less/style.css"/>
+    <script src="config/commonsearch.js"></script>
+    <script src="config/enumObject.js"></script>
+
+</head>
+<body>
+<div class="page-container">
+
+    <div class="page-sidebar" ui-view="sidebar"></div>
+    <div class="page-content" ui-view="content"></div>
+</div>
+<div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+    <div class="mb-container">
+        <div class="mb-middle">
+            <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+            <div class="mb-content">
+                <p>Are you sure you want to log out?</p>
+
+                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+            </div>
+            <div class="mb-footer">
+                <div class="pull-right">
+                    <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                    <button class="btn btn-default btn-lg mb-control-close">No</button>
+                </div>
+            </div>
         </div>
-                              
-        <div class="ui-layout-east" >
-           
-        </div>   
-    </div> 
+    </div>
+</div>
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+
+<script src="bower_components/requirejs/require.js" data-main="require.config.js"></script>
+<script>
+    console.log('3');
+</script>
 </body>
+</html>
+
+
+
+
+
+
